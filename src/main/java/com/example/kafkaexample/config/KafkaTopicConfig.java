@@ -5,7 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
-
+/**
+  *  This class is responsible to build topics for kafka broker.
+ **/
 @Configuration
 public class KafkaTopicConfig {
 

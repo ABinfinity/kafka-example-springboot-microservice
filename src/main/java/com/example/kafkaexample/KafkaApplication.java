@@ -18,7 +18,7 @@ public class KafkaApplication {
 		return args -> {
 			for (int i = 0; i < 100; i++) {
 				kafkaTemplate.send("abhicode",
-						"hello, this is message number: " + i);
+						"hello, this is message number:🔥 " + i);
 			}
 
 		};

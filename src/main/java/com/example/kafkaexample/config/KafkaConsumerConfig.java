@@ -13,6 +13,10 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class is responsible to configure the Kafka Consumer.
+ */
+
 @Configuration
 public class KafkaConsumerConfig {
 
@@ -34,11 +38,8 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public KafkaListenerContainerFactory<
-            ConcurrentMessageListenerContainer<String, String>> factory(
-            ConsumerFactory<String, String> consumerFactory){
-        ConcurrentKafkaListenerContainerFactory<String, String> factory =
-                new ConcurrentKafkaListenerContainerFactory<>();
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> factory(ConsumerFactory<String, String> consumerFactory){
+        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
         return factory;
     }
