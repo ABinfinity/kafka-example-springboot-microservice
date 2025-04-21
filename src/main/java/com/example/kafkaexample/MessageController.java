@@ -1,25 +1,24 @@
 package com.example.kafkaexample;
 
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.kafkaexample.service.KafkaProducer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.http.HttpResponse;
 
 @RestController
-@RequestMapping("api/v1/messages")
+@RequestMapping("api/v2/messages")
 public class MessageController {
 
+    @Autowired
+    private KafkaProducer kafkaProducer;
 
-    private KafkaTemplate<String, String> kafkaTemplate;
+    @GetMapping("/sendToTopic")
+    public ResponseEntity<String> publish(@RequestParam String message){
+        kafkaProducer.sendMessageToTopic(message);
 
-    public MessageController(KafkaTemplate<String, String> kafkaTemplate) {
-        this.kafkaTemplate = kafkaTemplate;
-    }
-
-    @PostMapping
-    public void publish(@RequestBody MessageRequest request){
-        kafkaTemplate.send("abhicode", request.message());
+        return ResponseEntity.ok("Message sent to topic successfully.");
 
     }
 }
