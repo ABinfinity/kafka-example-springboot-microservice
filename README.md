@@ -1,5 +1,8 @@
 # Quickstart
+PRE: This branch has an easier approach than master branch.
+
 STEP: START THE KAFKA ENVIRONMENT
+
 NOTE: Your local environment should have Java 8+ installed.
 
 Apache Kafka can be started using ZooKeeper or KRaft. To get started, follow the sections below.
@@ -25,6 +28,6 @@ Start the server & once all services have successfully launched, you will have a
 $ bin/kafka-console-consumer.sh --topic abhicode --from-beginning --bootstrap-server localhost:9092
 ```
 
-Reference to this code was made from the video link below.(Credit:- Amigoscode)
+Reference to this code was made from the video link below.(Credit:- CodeDecode)
 
-https://www.youtube.com/watch?v=SqVfCyfCJqw&ab_channel=Amigoscode
+https://www.youtube.com/watch?v=WOPPG5tyApg
